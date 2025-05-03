@@ -1,0 +1,97 @@
+  @media (max-width: 992px) {
+    .about-content,
+    .customize-options,
+    .contact-info {
+      flex-direction: column;
+    }
+
+    .about-content {
+      gap: 0px;
+    }
+  
+    .about-text,
+    .about-image,
+    .upload-container,
+    .marker-container,
+    .contact-item {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  
+    .map-container {
+      height: 400px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+  
+    .nav-menu {
+      position: absolute;
+      top: 55px;
+      left: 0;
+      background-color: #921e1e;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      padding: 5px 0;
+      transform: translateY(-150%);
+      transition: transform 0.3s;
+      box-shadow: 5px 5px 20px #00000060
+    }
+  
+    .nav-menu.active {
+      transform: translateY(0);
+    }
+  
+    nav ul li {
+      margin: 10px 0;
+    }
+  
+    .hero h2 {
+      font-size: 2rem;
+    }
+  
+    .hero p {
+      font-size: 1rem;
+    }
+  
+    .map-container {
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    section {
+      padding: 40px 0;
+    }
+  
+    .hero {
+      padding: 100px 0 40px;
+    }
+  
+    .hero h2 {
+      font-size: 1.8rem;
+    }
+  
+    .map-controls {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .map-container {
+      height: 250px;
+    }
+  
+    .contact-item {
+      padding: 15px;
+    }
+
+    .contact-info {
+      gap: 0px;
+      align-items: center;
+    }
+  }
+  
