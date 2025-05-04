@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("reset-view").addEventListener("click", () => {
     map.setView(defaultView, defaultZoom);
   });
+  
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -119,26 +120,33 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Touch events for mobile
-  mapContainer.addEventListener("touchstart", (e) => {
-    isDragging = true
-    startPosX = e.touches[0].clientX - posX
-    startPosY = e.touches[0].clientY - posY
-    e.preventDefault()
-  })
+  // Define mapContainer before using it
+const mapContainer = document.getElementById("leaflet-map");
 
-  document.addEventListener("touchmove", (e) => {
-    if (isDragging) {
-      posX = e.touches[0].clientX - startPosX
-      posY = e.touches[0].clientY - startPosY
-      updateMapTransform()
-      e.preventDefault()
-    }
-  })
+if (mapContainer) {
+    // Touch events for mobile
+    mapContainer.addEventListener("touchstart", (e) => {
+        isDragging = true;
+        startPosX = e.touches[0].clientX - posX;
+        startPosY = e.touches[0].clientY - posY;
+        e.preventDefault();
+    });
 
-  document.addEventListener("touchend", () => {
-    isDragging = false
-  })
+    document.addEventListener("touchmove", (e) => {
+        if (isDragging) {
+            posX = e.touches[0].clientX - startPosX;
+            posY = e.touches[0].clientY - startPosY;
+            updateMapTransform();
+            e.preventDefault();
+        }
+    });
 
+    document.addEventListener("touchend", () => {
+        isDragging = false;
+    });
+} else {
+    console.error("Map container element not found!");
+}
 
   // Handle window resize
   window.addEventListener("resize", () => {
