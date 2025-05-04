@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const map = L.map("leaflet-map", {
     center: [14.99785, 120.6556],
-    zoom: 17,
+    zoom: 18,
     zoomControl: false
   });
   
@@ -17,14 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const locations = {
     gate_2: [14.99787295054242, 120.65327635515237],
     gate_3: [14.998001758775736, 120.65385408542204],
-    gate_1: [14.997236446729993, 120.65319709845494],
+    gate_1: [14.997249400971546, 120.6532185561277],
+    acad: [14.997251394816786, 120.6540224769013],
     gate_5: [14.998504427922397, 120.6563219818991],
     gate_6: [14.998488882923656, 120.6564051303811],
-    gate_7: [14.997279159886942, 120.65617720270585],
-    gate_8: [14.99722734292323, 120.65605918550561],
+    gate_7: [14.997269881153665, 120.65641475347688],
+    parking_2: [14.997802276638941, 120.65630855603273],
+    gate_8: [14.997226746381333, 120.6560670759434],
     admin: [14.997486055361032, 120.65398796655205],
     taw: [14.998228961660555, 120.65415515016345],
     coe: [14.99793714161489, 120.65417128955947],
+    parking_1: [14.997316986783966, 120.65370552480414],
     ccs: [14.997649278556784, 120.65480872253569],
     cas: [14.997937141609, 120.65475819479173],
     cssp: [14.998158976751514, 120.65499423275024],
@@ -33,13 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
     ufc: [14.997355455959111, 120.65457796910107],
     ro: [14.997394671365905, 120.65472119079188],
     lib: [14.997594870838707, 120.65430714943457],
+    shs: [14.998062925442591, 120.65541685998527],
+    data: [14.997353034549056, 120.65560193241295],
+    lab: [14.997726116188334, 120.65553487718553],
+    acrcre_lab: [14.997451663306034, 120.65531111656666],
     cea_ext: [14.997311688513577, 120.6550484576488],
     cli: [14.997092933549627, 120.65557156880007],
     aud: [14.998082993738224, 120.65579486955303],
     it: [14.998487630013525, 120.65538950656446],
     ann: [14.998592558734275, 120.65577976796669],
     hos: [14.99809170824405, 120.65615799861536],
-    cbs: [14.99747072553969, 120.65603189570346],
+    cbs_2: [14.997462876125526, 120.6559518222376],
+    cbs_1: [14.99714938357256, 120.65583648724643],
+    cbs_3: [14.997692435233736, 120.65580846251343],
+    cbs_4: [14.99775483955253, 120.65604977549488],
     cas_ext: [14.998026349438359, 120.65684591391289],
     hs: [14.99741182895181, 120.6570438646833],
     pool: [14.997627660312046, 120.65760825938719],
@@ -53,6 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
     L.marker(coords).addTo(map).bindPopup(key.toUpperCase());
   }
 
+  for (const [key, coords] of Object.entries(locations)) {
+    L.marker(coords).addTo(map).bindPopup(key.toUpperCase());
+  }
+  
+  
   let control = null;
   const startSelect = document.getElementById("start");
   const endSelect = document.getElementById("destination");
@@ -79,11 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("reset-view").addEventListener("click", () => {
     map.setView(defaultView, defaultZoom);
   });
-  
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Mobile menu toggle
   const mobileMenu = document.getElementById("mobile-menu")
   const navMenu = document.querySelector(".nav-menu")
 
@@ -142,4 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
-})
+
+});
+
