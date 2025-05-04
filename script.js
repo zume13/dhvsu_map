@@ -119,46 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Touch events for mobile
-  // Define mapContainer before using it
-const mapContainer = document.getElementById("leaflet-map");
-
-if (mapContainer) {
-    // Touch events for mobile
-    mapContainer.addEventListener("touchstart", (e) => {
-        isDragging = true;
-        startPosX = e.touches[0].clientX - posX;
-        startPosY = e.touches[0].clientY - posY;
-        e.preventDefault();
-    });
-
-    document.addEventListener("touchmove", (e) => {
-        if (isDragging) {
-            posX = e.touches[0].clientX - startPosX;
-            posY = e.touches[0].clientY - startPosY;
-            updateMapTransform();
-            e.preventDefault();
-        }
-    });
-
-    document.addEventListener("touchend", () => {
-        isDragging = false;
-    });
-} else {
-    console.error("Map container element not found!");
-}
-
-  // Handle window resize
-  window.addEventListener("resize", () => {
-    // Reset map position and scale on window resize for better mobile experience
-    if (window.innerWidth < 768) {
-      scale = 1
-      posX = 0
-      posY = 0
-      updateMapTransform()
-    }
-  })
-
   // Active menu highlighting based on scroll position
   window.addEventListener("scroll", () => {
     const sections = document.querySelectorAll("section")
