@@ -64,11 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
   for (const [key, coords] of Object.entries(locations)) {
     L.marker(coords).addTo(map).bindPopup(key.toUpperCase());
   }
-
-  for (const [key, coords] of Object.entries(locations)) {
-    L.marker(coords).addTo(map).bindPopup(key.toUpperCase());
-  }
-  
   
   let control = null;
   const startSelect = document.getElementById("start");
